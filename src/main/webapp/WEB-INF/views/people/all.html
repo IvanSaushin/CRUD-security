@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD page</title>
+</head>
+<body>
+
+<p align="center">crud page</p>
+
+<div align="center">
+<br/>
+<hr/>
+<br/>
+
+<table>
+
+    <tr style="background-color: darkgray">
+        <th>Name</th><th>Age</th> <th>Email</th>
+    </tr>
+    <tr style="background-color: azure" th:each="person : ${people}">
+
+        <td><a th:href="@{/people/{id}(id=${person.getId()})}"
+           th:text="${person.getName()}"></a></td>
+        <td th:text="${person.getAge()}"></td>
+        <td th:text="${person.getEmail()}"></td>
+        <td></td>
+    </tr>
+    <tr> <td> </td></tr>
+
+
+</table>
+    <br/>
+    <hr/>
+    <a th:align="center" href="people/new">Add user</a>
+
+</div>
+</body>
+</html>
